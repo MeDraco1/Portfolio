@@ -45,11 +45,7 @@ function initializeCinematicIntro() {
         if (started || !pageLoaded || !videoReady) return;
         started = true;
         cinematicIntro.classList.add('cinematic-intro--playing');
-        introVideo.play().then(() => {
-            // Autoplay begins muted for browser compatibility, then restores the intro's audio.
-            introVideo.muted = false;
-            introVideo.volume = 1;
-        }).catch(() => {
+        introVideo.play().catch(() => {
             // Keep the lock in place if a browser cannot start the mandatory intro.
         });
     };
